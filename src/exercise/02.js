@@ -8,9 +8,9 @@ function Toggle({children}) {
   const [on, setOn] = React.useState(false)
   const toggle = () => setOn(!on)
 
-  return React.Children.map(children, (child, ind) => {
+  return React.Children.map(children, (child) => {
     if (typeof child.type === 'function') {
-      if (ind + 1 !== children.length) return React.cloneElement(child, {on})
+      if (child.props.children) return React.cloneElement(child, {on})
       return React.cloneElement(child, {on, handleToggle: toggle})
     } else {
       return child
@@ -35,10 +35,10 @@ function App() {
   return (
     <div>
       <Toggle>
+        <ToggleButton />
         <ToggleOn>The button is on</ToggleOn>
         <ToggleOff>The button is off</ToggleOff>
         <span>Hello</span>
-        <ToggleButton />
       </Toggle>
     </div>
   )
