@@ -28,7 +28,7 @@ const ToggleOff = ({on, children}) => {
 
 const ToggleButton = ({on, handleToggle}) => {
   console.log('in toggle')
-  return <Switch on={on} onClick={handleToggle} />
+  return <oSwitch on={on} onClick={handleToggle} />
 }
 
 function App() {
